@@ -1,0 +1,22 @@
+{ 
+    "manifest_version":2,
+    "name": "Genius",
+    "description":"A chrome extention to display meaning of word/sentence or translate the to another language",
+    "version":"1.0",
+    "background": {
+        "scripts": ["background.js","jquery-3.3.1.js"],
+        "persistent": false
+    },
+    "content_scripts":[
+        {
+            "matches":["*://*/*"],
+            "js":["content.js","jquery-3.3.1.js"],
+            "css":["content.css"]
+        }
+    ],
+    "permissions":[
+        "contextMenus",
+        "tts",
+        "tabs"
+    ]
+}
