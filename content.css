@@ -1,3 +1,57 @@
 p{
 	color: red;
 }
+
+#tooltip {
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	width: 300px;
+	padding-bottom: 25px;
+	color: #494949;
+}
+#tooltip span{
+	font-weight: bold;
+	margin: 0 auto;
+	color: #272827;
+}
+
+#tooltip-icon{
+	float: right;
+}
+
+#tooltip-type{
+	font-style: italic;
+	font-size: 20px;
+}
+
+#tooltip-title{
+	font-size: 30px;
+}
+
+.tooltip-group{
+	margin: 5px auto;
+}
+
+.fa{
+	font-weight: bold !important;
+	font-size: 20px !important;
+	cursor: pointer;
+
+}
+.fa-angle-left{
+	float: left;
+}
+
+.fa-angle-right{
+	float: right;
+	
+}
+
+.fa-microphone{
+	margin-left: 10px; 
+}
+
+#tooltip hr{
+	border:1px solid black;
+}
