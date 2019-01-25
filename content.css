@@ -3,12 +3,18 @@ p{
 }
 
 #tooltip {
+	background-color: white;
 	border: 2px solid black;
 	border-radius: 10px;
 	padding: 10px;
 	width: 300px;
-	padding-bottom: 25px;
+	padding-bottom: 5px;
 	color: #494949;
+	z-index: 10000;
+	position: fixed;
+	left: 30vw;
+	top:30vh;
+	box-shadow: 0px 0px 8px 2px #888888;
 }
 #tooltip span{
 	font-weight: bold;
