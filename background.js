@@ -6,6 +6,15 @@ var menuItem = {
 
 chrome.contextMenus.create(menuItem);
 
+$(document).ajaxError(function(e, xhr, settings, exception) {
+	console.log(e);
+
+	chrome.tabs.query({active : true,currentWindow : true}, function(tabs){
+		//console.log(tabs);
+		chrome.tabs.sendMessage(tabs[0].id, {todo: "404 Error"});
+	});
+
+});	
 
 
 chrome.contextMenus.onClicked.addListener(function(clickedData){

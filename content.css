@@ -1,13 +1,9 @@
-p{
-	color: red;
-}
-
-#tooltip {
+#tooltip,#error-box {
 	background-color: white;
 	border: 2px solid black;
 	border-radius: 10px;
 	padding: 10px;
-	width: 300px;
+	width: 320px;
 	padding-bottom: 5px;
 	color: #494949;
 	z-index: 10000;
@@ -22,7 +18,7 @@ p{
 	color: #272827;
 }
 
-#tooltip-icon{
+#tooltip-icon,#error-close{
 	float: right;
 }
 
@@ -60,4 +56,9 @@ p{
 
 #tooltip hr{
 	border:1px solid black;
+}
+#error-title{
+	font-weight: bold;
+	text-align: center;
+	font-size: 25px;
 }

@@ -4,13 +4,14 @@
     "description":"A chrome extention to display meaning of word/sentence or translate the to another language",
     "version":"1.0",
     "background": {
-        "scripts": ["background.js","jquery-3.3.1.js"],
+        "scripts": ["jquery-3.3.1.js","background.js"],
         "persistent": false
     },
     "permissions":[
         "contextMenus",
         "tts",
-        "tabs"
+        "tabs",
+        "storage"
     ],
     "content_scripts":[
         {

@@ -4,6 +4,17 @@ $('body').append("<div id=\"tooltip\" style=\"display :none;\">\
 	<div id=\"tooltip-button\"class=\"tooltip-group\"><i class=\"fa fa-angle-left\"></i><i class=\"fa fa-angle-right\"></i></div>\
 	</div>");
 
+$('body').append("	<div id=\"error-box\" style=\"display :none;\">\
+		<div><span><i class=\"fa fa-close\" id=\"error-close\"></i></span></div>\
+		<div id=\"error-title\">Oops!</div>\
+		<div id=\"error-sub-heading\">The word you were looking for was not found :( </div>\
+		<div id=\"error-body\">Please select only one word or change the language settings appropriately...</div>\
+	</div>");
+
+$("#error-close").click(function(){
+	$("#error-box").css({"display":"none"});
+});
+
 
 
 //add the faslink
@@ -77,7 +88,11 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){
 		});
 
 		$(".fa-microphone").click(function(){
-			chrome.tts.speak(list[i].word,{'rate':0.8});
+			console.log(chrome.tts);
+			//chrome.tts.speak(list[i].word,{'rate':0.8});
+			window.speechSynthesis.speak(
+			   new SpeechSynthesisUtterance(list[i].word)
+			);
 		});
 
 		$(".fa-angle-right").click(function(){
@@ -87,7 +102,10 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){
 			}
 			$("#tooltip-body").html(stringList[i]);
 			$(".fa-microphone").click(function(){
-				chrome.tts.speak(list[i].word,{'rate':0.8});
+				//chrome.tts.speak(list[i].word,{'rate':0.8});
+				window.speechSynthesis.speak(
+				   new SpeechSynthesisUtterance(list[i].word)
+				);
 			});
 
 		});
@@ -99,10 +117,20 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){
 			}
 			$("#tooltip-body").html(stringList[i]);
 			$(".fa-microphone").click(function(){
-				chrome.tts.speak(list[i].word,{'rate':0.8});
+				//chrome.tts.speak(list[i].word,{'rate':0.8});
+				window.speechSynthesis.speak(
+				   new SpeechSynthesisUtterance(list[i].word)
+				);
 			});
 
 		});
+
+	}
+
+
+	if(request.todo == "404 Error"){
+		console.log("here");
+		$("#error-box").css({"display":"block"});
 
 	}
 });
