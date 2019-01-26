@@ -1,73 +1,30 @@
 body{
 	background-color: white;
-	width: 200px;
+	width: 180px;
 	color: black;
 	text-align: left;
 }
-
-#tooltip,#error-box {
-	background-color: white;
-	border: 2px solid black;
-	border-radius: 10px;
-	padding: 10px;
-	width: 320px;
-	padding-bottom: 5px;
-	color: #494949;
-	z-index: 10000;
-	position: absolute;
-	left: 30vw;
-	top:30vh;
-	box-shadow: 0px 0px 8px 2px #888888;
-}
-#tooltip span{
-	font-weight: bold;
-	margin: 0 auto;
-	color: #272827;
-}
-
-#tooltip-icon{
-	float: right;
-}
-
-#tooltip-type{
-	font-style: italic;
-	font-size: 20px;
-}
-
-#tooltip-title{
-	font-size: 30px;
-}
-
-.tooltip-group{
-	margin: 5px auto;
-}
-
-.fa{
-	font-weight: bold !important;
-	font-size: 20px !important;
-	cursor: pointer;
-
-}
-.fa-angle-left{
-	float: left;
-}
-
-.fa-angle-right{
-	float: right;
-	
-}
-
-.fa-microphone{
-	margin-left: 10px; 
-}
-
-#tooltip hr{
-	border:1px solid black;
-}
-#error-title{
-	font-weight: bold;
+h2{
 	text-align: center;
-	font-size: 25px;
+	margin-bottom: 0px;
+}
+hr{
+	border: 0.3px solid black;
 }
 
-#error-
+img{
+	margin-left: 10px;
+}
+
+span{
+	font-weight: bolder;
+}
+
+#footer{
+	font-size: 10px;
+	text-align: center;
+}
+
+#footer i{
+	color: #a31010;
+}

@@ -7,8 +7,8 @@ $('body').append("<div id=\"tooltip\" style=\"display :none;\">\
 $('body').append("	<div id=\"error-box\" style=\"display :none;\">\
 		<div><span><i class=\"fa fa-close\" id=\"error-close\"></i></span></div>\
 		<div id=\"error-title\">Oops!</div>\
-		<div id=\"error-sub-heading\">The word you were looking for was not found :( </div>\
-		<div id=\"error-body\">Please select only one word or change the language settings appropriately...</div>\
+		<div id=\"error-sub-heading\">The word that you were looking for was not found :( </div>\
+		<div id=\"error-body\">Please select only one word or change the language settings appropriately...\n(Or may be the connection was slow)</div>\
 	</div>");
 
 $("#error-close").click(function(){
@@ -32,9 +32,9 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){
 	if(request.todo == "display meaning"){
 		var list = []
 		for(var i =0;i<request.wordData.length;i++){
-			//console.log(request.wordData[i]);
+
 			for(var type in request.wordData[i].meaning){
-				//console.log(request.wordData[i].meaning[type]);
+
 				for(var j=0;j<request.wordData[i].meaning[type].length;j++){
 					var object = {
 						"word" : request.wordData[i].word,
@@ -44,13 +44,12 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){
 						"synonyms":request.wordData[i].meaning[type][j].synonyms,
 					}
 
-					//console.log(object);
 					list.push(object);
 				}
 				
 			}
 		}
-		//console.log(list)
+
 		var stringList = [];
 		
 		for(var i=0;i<list.length;i++){
@@ -63,8 +62,8 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){
 			string += "<div id=\"tooltip-example\" class=\"tooltip-group\"><span>example: </span>"+list[i].example+"</div>";
 
 			if(list[i].synonyms !=  undefined ){
-				string+="<div id=\"tooltip-synonyms\" class=\"tooltip-group\"><span>synonyms:</span>";
-				//console.log(list[i])
+				string+="<div id=\"tooltip-synonyms\" class=\"tooltip-group\"><span>synonyms: </span>";
+
 				
 				for(var j=0;j<list[i].synonyms.length;j++){
 					string+=list[i].synonyms[j]+",";
@@ -82,14 +81,14 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){
 		var i =0;
 		$('#tooltip').css({"display":"block"});
 		$("#tooltip-body").html(stringList[i]);
-		//add eventListeners 
+
 		$("#tooltip-icon").click(function(){
 			$('#tooltip').css({"display":"none"});
 		});
 
 		$(".fa-microphone").click(function(){
 			console.log(chrome.tts);
-			//chrome.tts.speak(list[i].word,{'rate':0.8});
+
 			window.speechSynthesis.speak(
 			   new SpeechSynthesisUtterance(list[i].word)
 			);
@@ -102,7 +101,7 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){
 			}
 			$("#tooltip-body").html(stringList[i]);
 			$(".fa-microphone").click(function(){
-				//chrome.tts.speak(list[i].word,{'rate':0.8});
+
 				window.speechSynthesis.speak(
 				   new SpeechSynthesisUtterance(list[i].word)
 				);
@@ -117,7 +116,7 @@ chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){
 			}
 			$("#tooltip-body").html(stringList[i]);
 			$(".fa-microphone").click(function(){
-				//chrome.tts.speak(list[i].word,{'rate':0.8});
+
 				window.speechSynthesis.speak(
 				   new SpeechSynthesisUtterance(list[i].word)
 				);

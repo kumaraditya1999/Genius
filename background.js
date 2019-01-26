@@ -7,10 +7,9 @@ var menuItem = {
 chrome.contextMenus.create(menuItem);
 
 $(document).ajaxError(function(e, xhr, settings, exception) {
-	console.log(e);
 
 	chrome.tabs.query({active : true,currentWindow : true}, function(tabs){
-		//console.log(tabs);
+
 		chrome.tabs.sendMessage(tabs[0].id, {todo: "404 Error"});
 	});
 
@@ -20,16 +19,23 @@ $(document).ajaxError(function(e, xhr, settings, exception) {
 chrome.contextMenus.onClicked.addListener(function(clickedData){
 	if(clickedData.menuItemId == "genius" && clickedData.selectionText){
 		//chrome.tts.speak(clickedData.selectionText,{'rate':0.8});
-		 var url = "https://googledictionaryapi.eu-gb.mybluemix.net/?define=";
-		 url += escape(clickedData.selectionText);
-		 url+= "&lang=en";
-		 console.log(url);
-		 $.get(url, function (data, status) {
-		        console.log(data);
-		        chrome.tabs.query({active : true,currentWindow : true}, function(tabs){
-		        	//console.log(tabs);
-		        	chrome.tabs.sendMessage(tabs[0].id, {todo: "display meaning", wordData:data});
-		        });
-		    });
+		chrome.storage.sync.get('lan', function(o){
+			var url = "https://googledictionaryapi.eu-gb.mybluemix.net/?define=";
+			url += escape(clickedData.selectionText);
+			if(o.lan){
+				url+="&lang="+o.lan;
+			}else{
+				url+= "&lang=en";	
+			}
+			
+
+			$.get(url, function (data, status) {
+			       chrome.tabs.query({active : true,currentWindow : true}, function(tabs){
+
+			       	chrome.tabs.sendMessage(tabs[0].id, {todo: "display meaning", wordData:data});
+			       });
+			   });
+		});
+		 
 	}
 });
