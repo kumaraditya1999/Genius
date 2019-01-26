@@ -24,11 +24,11 @@
 
 #tooltip-type{
 	font-style: italic;
-	font-size: 10px;
+	font-size: 15px;
 }
 
 #tooltip-title{
-	font-size: 15px;
+	font-size: 20px;
 }
 
 .tooltip-group{
@@ -37,7 +37,7 @@
 
 .fa{
 	font-weight: bold !important;
-	font-size: 10px !important;
+	font-size: 15px !important;
 	cursor: pointer;
 
 }
@@ -51,7 +51,7 @@
 }
 
 .fa-microphone{
-	margin-left: 10px; 
+	margin-left: 15px; 
 }
 
 #tooltip hr{
@@ -60,7 +60,7 @@
 #error-title{
 	font-weight: bold;
 	text-align: center;
-	font-size: 15px;
+	font-size: 20px;
 }
 
 #error-sub-heading{
