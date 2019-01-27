@@ -31,4 +31,4 @@ A simple chrome extension that tells you the meaning of words (supports mulitple
 from [www.flaticon.com](https://www.flaticon.com/) is licensed by [CC 3.0](http://creativecommons.org/licenses/by/3.0/).
 
 ## PS
-Feel free to raise an issue and start the repo.
+Feel free to raise an issue.
